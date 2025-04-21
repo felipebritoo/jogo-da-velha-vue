@@ -12,6 +12,7 @@
       </button>
     </div>
     <div class="scores">Placar: X - {{ scores.X }} | O - {{ scores.O }}</div>
+    <div class="games-played">Partidas jogadas: {{ gamesPlayed }}</div>
     <button class="reset-button" @click="resetGame">Reiniciar Jogo</button>
     <div v-if="gameEnded" class="modal">
       <div class="modal-content">
@@ -32,6 +33,7 @@ export default {
       scores: { X: 0, O: 0 },
       winnerLine: null,
       gameEnded: false,
+      gamesPlayed: 0,
     };
   },
   computed: {
@@ -84,8 +86,10 @@ export default {
         this.winnerLine = winningLine;
         this.gameEnded = true;
         this.scores[winner] += 1;
+        this.gamesPlayed += 1;
       } else if (nextSquares.every((square) => square !== null)) {
         this.gameEnded = true;
+        this.gamesPlayed += 1;
       }
     },
     resetGame() {
@@ -164,6 +168,12 @@ export default {
   font-size: 24px;
   font-weight: bold;
   color: #333;
+}
+
+.games-played {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
 }
 
 .reset-button {
