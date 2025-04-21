@@ -18,7 +18,7 @@ export default {
 
 <style>
 body {
-  background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  background: linear-gradient(135deg, #ff7e5f, #6b48ff);
   min-height: 100vh;
   display: flex;
   justify-content: center;
